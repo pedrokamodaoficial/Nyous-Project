@@ -3,7 +3,7 @@ import {Nav, Navbar} from 'react-bootstrap';
 import logo from '../../assets/img/logo.jpg'
 import jwt_decode from 'jwt-decode';
 
-const Menu = () => {
+const Menu = () => 
 
     function renderMenu() {
         const token = localStorage.getItem('token-nyous');
@@ -26,10 +26,11 @@ const Menu = () => {
         }else{
             <Nav>
                     <Nav.Link href="/admin/dashboard">Eventos</Nav.Link>
-                    <Nav.Link href="/admin/categorias">Sair</Nav.Link>
+                    <Nav.Link href="/admin/categorias">Categorias</Nav.Link>
+            </Nav>
         }
+
             console.log(token);
-    }
 
     return(
         <Navbar bg="light" expand="lg">
@@ -44,6 +45,5 @@ const Menu = () => {
             </Navbar.Collapse>
         </Navbar>
     );
-}
 
-export default Menu;
+}
