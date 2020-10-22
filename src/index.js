@@ -6,6 +6,7 @@ import Login from './pages/login';
 import Cadastrar from './pages/cadastrar';
 import Eventos from './pages/eventos'
 import NaoEncontrada from './pages/naoencontrada';
+import Dashboard from './pages/admin/dashboard';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -18,6 +19,7 @@ const routing = (
         <Route path="/login" component={Login}/>
         <Route path="/cadastrar" component={Cadastrar}/>
         <Route path="/eventos" component={Eventos}/>
+        <Route path="/admin/dashboard" component={Dashboard}/>
         <Route path="/naoencontrada" component={NaoEncontrada}/>
       </Switch>
   </Router>

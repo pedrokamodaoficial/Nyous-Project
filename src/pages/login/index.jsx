@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Menu from '../../components/menu';
 import Rodape from '../../components/rodape';
 import { useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode"; 
 import logo from '../../assets/img/logo.jpg'
 import { Form, Container, Button } from 'react-bootstrap'
 import './index.css'
@@ -36,11 +37,17 @@ const Login = () => {
         .then(data => {
             console.log(data);
             
-            // Armazena o token
+           
             localStorage.setItem('token-nyous', data.token);
             
-            // Após efetuar login encaminha a página de eventos
-            history.push("/eventos")
+            let usuario = jwt_decode(data.token)
+
+            if(usuario.role === 'Admin'){
+                history.push('/admin/dashboard');
+            }else {
+                history.push('/eventos')
+            }
+
         })
         .catch(err => console.error(err));
     }
